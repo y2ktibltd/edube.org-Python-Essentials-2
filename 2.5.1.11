@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+from time import sleep
+Pass=True
+total=0
+sudoku=[
+[2,9,5,7,4,3,8,6,1],
+[4,3,1,8,6,5,9,2,7],
+[8,7,6,1,9,2,5,4,3],
+[3,8,7,4,5,9,2,1,6],
+[6,1,2,3,8,7,4,9,5],
+[5,4,9,2,1,6,7,3,8],
+[7,6,3,5,2,4,1,8,9],
+[9,2,8,6,7,1,3,5,4],
+[1,5,4,9,3,8,6,7,2],]
+for a in range(9):
+    for b in range(9):
+        if sudoku[a][b] not in (1,2,3,4,5,6,7,8,9):Pass=False
+        total+=sudoku[a][b]
+#        sleep(.125)
+        print(f"sudoku[{a}][{b}] value{sudoku[a][b]}\tTotal{total}\tPass:{Pass}")
+    if total!=45:Pass=False
+    total=0
+
+for a in range(9):
+    for b in range(9):
+        if sudoku[b][a] not in (1,2,3,4,5,6,7,8,9):Pass=False
+        total+=sudoku[b][a]
+#        sleep(.125)
+        print(f"sudoku[{b}][{a}] value{sudoku[b][a]}\tTotal{total}\tPass:{Pass}")
+    if total!=45:Pass=False
+    total=0
+
+if Pass:print("Yes")
+else:print("No")
