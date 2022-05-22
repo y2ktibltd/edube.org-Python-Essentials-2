@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+def read_int(prompt, min, max):
+    while True:
+        try:
+            v=int(input(prompt))
+        except ValueError:
+            print("Error: wrong input")
+        else:
+            if min<=v<max:
+                return v
+            else:
+                print(f"Error: the value is not within permitted range ({min}..{max})")
+
+v = read_int("Enter a number from -10 to 10: ", -10, 10)
+
+print("The number is:", v)
