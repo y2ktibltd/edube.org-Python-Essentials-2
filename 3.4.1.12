@@ -7,11 +7,11 @@ class Timer:
 
     def __str__(self):
         hour=str(self.__h)
-        if hour=="0":hour="00"
+        if len(hour)==1:hour="0"+hour
         minute=str(self.__m)
-        if minute=="0":minute="00"
+        if len(minute)==1:minute="0"+minute
         second=str(+self.__s)
-        if second=="0":second="00"
+        if len(second)==1:second="0"+second
         return hour+":"+minute+":"+second
 
     def next_second(self):
@@ -36,7 +36,7 @@ class Timer:
                 if self.__h<0:
                     self.__h=23
 
-timer = Timer(23, 59, 59)
+timer = Timer(9, 0, 19)
 print(timer)
 timer.next_second()
 print(timer)
